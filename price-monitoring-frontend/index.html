@@ -8,6 +8,8 @@
 
 <head>
   <title>Hostest Bee Tracker</title>
+  <meta charset="UTF-8">
+  <link href="css/style.css" rel="stylesheet" /> 
   <style>
   body {
     font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -23,11 +25,11 @@
     margin: 0 auto;
   }
   </style>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/hover.js"></script>
+
+ 
  
   <!--
       - JavaScript and HTML must be in separate files: see our Content Security
@@ -42,12 +44,18 @@
     <!-- Setting the header -->
     <div class="row">
       <center>
+
         <h3>Hostest Bee Tracker</h3>
-        <h4>Product Price alert setter</h4>
+        <hr>
+        <h4>Honestbee has discount with this product!</h4>
+
+        <img src="https://blog.honestbee.com/wp-content/uploads/2016/03/primary-logo-e1460342477246.png" height=60px>
       </center>
     </div>
+
+
     <!-- Form for setting the product price range for getting notification -->
-    <div class="well">
+<!--     <div class="well">
       <select class="form-control inline" id="condition">
         <option value="lessThanValue">Less than a Value</option>
         <option value="lessThanCurrent">Less than Current Price</option>
@@ -59,33 +67,25 @@
       <center>
         <button class="btn btn-primary" id="submit" name="submit">Set Alert</button>
       </center>
-    </div>
-    <div id="output1">Nothing 12 </div>
-
-
-    <div id="app1">
-      <h3>{{notifydata}}</h3>
-    </div>
-    <h5 v-if="items.length==0">loading...</h5>
-  <!-- 在載入過程中，商品清單為0，會顯示＂載入中...＂-->
-    <ul>
-      <li v-for="item in items">
-        <div class="name">{{item.name}}</div>
-        <div class="price">：${{item.price}}</div>
-      </li>
-    </ul>
-
+    </div> -->
     <!-- Displaying the product information -->
     <table>
       <tr>
-        <td><img id="img" src="" height="200" width="150"></img>
+        <td><img id="img" src="https://carrefoureccdn.azureedge.net/content/images/thumbs/0117742_946ml.jpeg" height="150" width="150"></img>
         </td>
         <td style="padding-left:50px;">
-          <p><b>Product Name  : </b><span id="name"></span></p>
-          <p><b>Current Price : </b><span id="current_price"></span></p>
+          <p><b>Product Name  : </b><span id="name">Australian Milk</span></p>
+          <p><b>Current Price : </b><span id="current_price">$70</span></p>
         </td>
       </tr>
     </table>
+    <div class="todolist">
+      <h3>Json list</h3>
+      <hr/>
+      <ul id="listitem"></ul>
+    </div>
+
 </body>
 
 </html>
+
