@@ -196,10 +196,11 @@ $.ajax(
       //   }
         // if的另一種寫法
         // var now_class = (item.done==true)?"done":"";
-      var item_c = tododata_json.carrefour.item;
-      var price_c = tododata_json.carrefour.price;
-      var size_c = tododata_json.carrefour.size;
+      // var item_c = tododata_json.carrefour.item;
+      // var price_c = tododata_json.carrefour.price;
+      // var size_c = tododata_json.carrefour.size;
 
+      var title_h = tododata_json.carrefour.title;
       var item_h = tododata_json.carrefour.item;
       var price_h = tododata_json.carrefour.price;
       var size_h = tododata_json.carrefour.size;
@@ -208,9 +209,10 @@ $.ajax(
                        // .replace("{{date}}", item.date)
                        // .replace("{{class}}", now_class);
       // $("#listitem").append(now_item, price);
-      $("#item").append(item_c)
-      $("#price").append(price_c)
-      $("#size").append(size_c)
+      $("#title_h").append(title_h)
+      $("#item_h").append(item_h)
+      $("#price_h").append(price_h)
+      $("#size_h").append(size_h)
 
 
 
