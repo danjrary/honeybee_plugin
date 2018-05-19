@@ -168,34 +168,117 @@
   
 //   }
 // )
-var item_template=" <li class='{{class}}'>{{num}}.{{name}}({{date}})</li>"  //要記得把裡面的雙引號改成是單引號
+// var item_template=" <li class='{{class}}'>{{num}}.{{name}}({{date}})</li>"  //要記得把裡面的雙引號改成是單引號
 
-var data_url="https://awiclass.monoame.com/api/command.php?type=get&name=tododata"
+// var data_url="https://awiclass.monoame.com/api/command.php?type=get&name=tododata"
+
+var item_template=" <li class='{{name}}</li>"
+
+var data_url="http://35.227.176.119:8000/api/compare_price?item=奶油&size=100g&price=300"
+
 
 var tododata;
 
 $.ajax(
   {
     url: data_url,
+    datatype : "json",
     success: function(res){
-      tododata = JSON.parse(res);
-      for(i=0;i<tododata.length;i+=1){
-        var item = tododata[i];
-        var now_class = ""
-        if (item.done == true){
-          now_class="done"
-        }
+      console.log('res: ', res)
+      // tododata = JSON.parse(res);
+      tododata = JSON.stringify(res);
+      tododata_json = JSON.parse(tododata)
+      // for(i=0;i<tododata.length;i+=1){
+      //   var item = tododata[i];
+      //   var now_class = ""
+      //   if (item.done == true){
+      //     now_class="done"
+      //   }
         // if的另一種寫法
         // var now_class = (item.done==true)?"done":"";
-        var now_item = 
-            item_template.replace("{{name}}", item.name)
-                         .replace("{{num}}", i+1)
-                         .replace("{{date}}", item.date)
-                         .replace("{{class}}", now_class);
-        $("#listitem").append(now_item);
-      }
+      var item_c = tododata_json.carrefour.item;
+      var price_c = tododata_json.carrefour.price;
+      var size_c = tododata_json.carrefour.size;
+
+      var item_h = tododata_json.carrefour.item;
+      var price_h = tododata_json.carrefour.price;
+      var size_h = tododata_json.carrefour.size;
+          // item_template.replace("{{name}}", tododata_json.carrefour.item);
+                       // .replace("{{num}}", i+1)
+                       // .replace("{{date}}", item.date)
+                       // .replace("{{class}}", now_class);
+      // $("#listitem").append(now_item, price);
+      $("#item").append(item_c)
+      $("#price").append(price_c)
+      $("#size").append(size_c)
+
+
+
+        // }
+    },
+    error: function (error) {
+      console.log('error ' , error)
     }
   
   
   }
 )
+
+// $.ajax(
+//   {
+//     url: data_url,
+//     dataType: 'json',
+//     success: function(res){
+//       tododata = JSON.parse(res);
+//       for(i=0;i<tododata.length;i+=1){
+//         var item = tododata[i];
+//         var now_class = ""
+//         if (item.done == true){
+//           now_class="done"
+//         }
+//       var now_item = 
+//           item_template.replace("{{name}}", item.item)
+//                        .replace("{{date}}", item.price);
+//       $("#listitem").append(now_item);
+//       }
+//     }
+  
+  
+//   }
+// )
+
+// $(function () {            
+//             $.ajax({
+//                 url: "35.227.176.119:8000/api/compare_price?item=%E5%A5%B6%E6%B2%B9&size=100g&price=300",   //存取Json的網址             
+//                 type: "GET",
+//                 dataType: 'json',
+//                 //contentType: "application/json",
+//                 success: function (data) {
+
+//                     // //方法一 (回傳多筆資料)                
+//                     // for (var i = 0; i < data.length; i++) {
+//                     //     alert("name=" + data[i]["欄位名稱"]);    
+//                     // }
+
+//                     // //方法二 (回傳多筆資料)
+//                     // var i = 0;                    
+//                     // $.each(data, function () {
+//                     //     alert(data[i].欄位名稱);    
+//                     //     i++;
+//                     // });
+
+//                     //方法三 (回傳單筆資料)
+//                     $.each(data, function (index, element) {
+//                         alert(element);                      
+//                     });
+//                 },
+
+//                 error: function (xhr, ajaxOptions, thrownError) {
+//                     alert(xhr.status);
+//                     alert(thrownError);
+//                 }
+//             });
+
+//         });
+
+
